@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
       <main>
         {React.cloneElement(children, { provider, account, contract })}
       </main>
-      <div className="fixed w-24 h-24 bottom-[-80px] left-[-60px] bg-green-500 rounded-full z-[-10] opacity-30 hover:opacity-100 hover:scale-150 hover:z-50 duration-500 md:w-96 md:h-96 pulse-animation"></div>
+      <div className="fixed w-24 h-24 bottom-[-80px] left-[-60px] bg-green-500 rounded-full z-[0] opacity-30 duration-500 md:w-96 md:h-96 pulse-animation"></div>
       <style jsx>{`
         @keyframes pulse {
           0% {

@@ -118,7 +118,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-zinc-800 text-white bg-opacity-20">
+    <div className="container mx-auto p-4 bg-zinc-800 text-white bg-opacity-0 relative z-10">
       <Navbar onConnect={handleConnect} onNetworkChange={handleNetworkChange} />
 
       <main className="max-w-6xl mx-auto">
