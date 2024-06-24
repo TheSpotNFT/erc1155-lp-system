@@ -14,12 +14,30 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div className='bg-zinc-800'>
-    
+    <div className='bg-zinc-800 bg-opacity-10'>
       <main>
         {React.cloneElement(children, { provider, account, contract })}
       </main>
-      <div className="fixed w-96 h-96 bottom-[-80px] left-[-60px] bg-green-500 rounded-full z-50 opacity-30 hover:opacity-100 hover:scale-150 duration-500"></div>
+      <div className="fixed w-24 h-24 bottom-[-80px] left-[-60px] bg-green-500 rounded-full z-[-10] opacity-30 hover:opacity-100 hover:scale-150 hover:z-50 duration-500 md:w-96 md:h-96 pulse-animation"></div>
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.7;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 1;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 0.7;
+          }
+        }
+        .pulse-animation {
+          animation: pulse 6s infinite;
+        }
+      `}</style>
     </div>
   );
 };
