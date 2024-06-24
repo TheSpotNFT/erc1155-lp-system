@@ -146,7 +146,7 @@ const Home = () => {
             onChange={(e) => setNewPoolTokenId(e.target.value)}
             className="w-full mb-2 p-2 border border-zinc-600 bg-zinc-700 text-white rounded"
           />
-          <button onClick={createPool} className="w-full p-2 bg-green-500 hover:bg-green-700 text-white rounded duration-150">
+          <button onClick={createPool} className="w-full p-2 bg-green-500 hover:bg-green-700 text-gray-100 font-bold rounded duration-150">
             Create Pool
           </button>
           <p className="mt-2">Listing Fee: {network === 'Avax' ? '0.1 AVAX' : '0.001 ETH'}</p>
@@ -161,14 +161,14 @@ const Home = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full mb-4 p-2 border border-zinc-700 bg-zinc-700 text-white rounded"
           />
-          <div className="grid grid-cols-7 gap-4 p-4 bg-zinc-700">
+          <div className="grid grid-cols-8 gap-4 p-4 bg-zinc-700">
             <div className="flex font-semibold h-12 w-12"></div>
             <div className="font-semibold">Token ID</div>
             <div className="font-semibold">Total Liquidity</div>
             <div className="font-semibold">Reward Rate</div>
             <div className="font-semibold">Your LP Tokens</div>
             <div className="font-semibold">Current Rewards</div>
-            <div className="font-semibold text-center">Actions</div>
+            <div className="font-semibold text-center col-span-2">Actions</div>
           </div>
           <ul className="space-y-4">
             {filteredPools.map((pool) => (
@@ -181,21 +181,26 @@ const Home = () => {
                   <p className='mx-auto'>{pool.yourLockedLP}</p>
                   <p className='mx-auto'>{pool.rewards}</p>
                 </div>
-                <div className="flex flex-col space-y-2 w-48">
-                  <input type="text" placeholder="Amount" className="p-2 mb-2 border border-zinc-600 bg-zinc-700 text-white rounded" />
-                  <button onClick={() => buyTokens(pool.id, 100 /* example amount */)} className="mt-4 p-2 bg-green-500 hover:bg-green-400 duration-150 text-white rounded">
+                <div className="flex flex-col space-y-2 w-48 pb-4 pr-4">
+                  <input type="text" placeholder="Amount" className="h-11 placeholder:pl-4 border border-zinc-600 bg-zinc-700 text-white rounded" />
+                  <button onClick={() => buyTokens(pool.id, 100 /* example amount */)} className="h-11 p-2 bg-green-400 hover:bg-green-500 duration-150 text-gray-100 font-bold rounded">
                     Buy
                   </button>
-                  <button onClick={() => sellTokens(pool.id, 100 /* example amount */)} className="p-2 bg-green-600 hover:bg-green-500 duration-150 text-white rounded">
+                  <button onClick={() => sellTokens(pool.id, 100 /* example amount */)} className="h-11 p-2 bg-green-500 hover:bg-green-600 duration-150 text-gray-100 font-bold rounded">
                     Sell
                   </button>
-                  <button onClick={() => addLiquidity(pool.id, 100 /* example amount */)} className="p-2 bg-green-700 hover:bg-green-600 duration-150 text-white rounded">
+      
+                </div>
+                <div className="flex flex-col space-y-2 w-48 pb-4 pl-4">
+                <button onClick={() => addLiquidity(pool.id, 100 /* example amount */)} className="h-11 p-2 bg-green-600 hover:bg-green-700 duration-150 text-gray-100 font-bold rounded">
                     Provide LP
                   </button>
-                  <button onClick={() => claimRewards(pool.id)} className="p-2 bg-green-800 hover:bg-green-700 duration-150 text-white rounded">
+                  <button onClick={() => claimRewards(pool.id)} className="h-11 p-2 bg-green-700 hover:bg-green-800 duration-150 text-gray-100 font-bold rounded">
                     Claim LP Rewards
                   </button>
-                </div>
+                  <button onClick={() => claimRewards(pool.id)} className="h-11 p-2 bg-green-800 hover:bg-green-900 duration-150 text-gray-100 font-bold rounded">
+                    Chart
+                  </button></div>
               </li>
             ))}
           </ul>

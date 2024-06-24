@@ -23,19 +23,19 @@ const Layout = ({ children }) => {
         @keyframes pulse {
           0% {
             transform: scale(1);
-            opacity: 0.7;
+            opacity: 0.5;
           }
           50% {
-            transform: scale(1.1);
+            transform: scale(1.25);
             opacity: 1;
           }
           100% {
             transform: scale(1);
-            opacity: 0.7;
+            opacity: 0.5;
           }
         }
         .pulse-animation {
-          animation: pulse 6s infinite;
+          animation: pulse 7s infinite;
         }
       `}</style>
     </div>

@@ -23,6 +23,7 @@ const Navbar = ({ onConnect, onNetworkChange }) => {
   const handleAccountsChanged = async (accounts) => {
     if (accounts.length === 0) {
       console.log('Please connect to MetaMask.');
+      setAccount(null);
     } else if (accounts[0] !== account) {
       setAccount(accounts[0]);
       onConnect(provider, accounts[0]);
@@ -48,6 +49,14 @@ const Navbar = ({ onConnect, onNetworkChange }) => {
   };
 
   const connectWallet = async () => {
+    if (account) {
+      // If already connected, disconnect the wallet
+      setProvider(null);
+      setAccount(null);
+      setNetwork('');
+      return;
+    }
+
     const web3Modal = new Web3Modal({
       cacheProvider: true,
       providerOptions: getProviderOptions(),
@@ -100,12 +109,12 @@ const Navbar = ({ onConnect, onNetworkChange }) => {
   };
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-zinc-800 text-white">
-      <button onClick={connectWallet} className="bg-green-500 hover:bg-green-800 duration-150 text-white font-bold py-2 px-4 rounded w-60">
-        {account ? `Connected: ${account.substring(0, 6)}...${account.substring(account.length - 4)}` : 'Connect Wallet'}
+    <nav className="flex justify-between items-center p-4 bg-zinc-800 text-gray-100">
+      <button onClick={connectWallet} className="bg-green-500 hover:bg-green-800 duration-150 text-gray-100 font-bold py-2 px-4 rounded w-60">
+        {account ? `Disconnect (${account.substring(0, 6)}...${account.substring(account.length - 4)})` : 'Connect Wallet'}
       </button>
       {account && (
-        <button onClick={switchNetwork} className="bg-green-500 hover:bg-green-700 duration-150 text-white font-bold py-2 px-4 rounded w-60">
+        <button onClick={switchNetwork} className="bg-green-500 hover:bg-green-700 duration-150 text-gray-100 font-bold py-2 px-4 rounded w-60">
           Switch to {network === 'Avax' ? 'Ethereum' : 'Avalanche'}
         </button>
       )}
