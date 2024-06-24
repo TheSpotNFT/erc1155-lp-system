@@ -118,12 +118,12 @@ const Home = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-zinc-800 text-white">
+    <div className="container mx-auto p-4 bg-zinc-800 text-white bg-opacity-20">
       <Navbar onConnect={handleConnect} onNetworkChange={handleNetworkChange} />
 
       <main className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4 mx-auto flex pb-16 pt-16">Cowrie Network: Bringing Liquidity to ERC-1155 Tokens</h1>
-
+        <h1 className="text-6xl font-bold mb-4 mx-auto flex pt-16 md:pt-32">Cowrie Network</h1>
+        <h1 className="text-4xl font-bold mb-4 mx-auto flex pb-16">Bringing Liquidity to ERC-1155 Tokens</h1>
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Create New Liquidity Pool (Contract must be Approved for Listings)</h2>
           <h2 className="text-xl font-semibold mb-2">Currently Limited to Pairing with Native Token</h2>
