@@ -1,32 +1,32 @@
 [
     {
         "id": "1",
-        "tokenId": "123",
-        "name": "First",
+        "tokenId": "Cowrie",
         "totalLiquidity": "1000",
         "rewardRate": "10%",
-        "imageUrl": "https://via.placeholder.com/100",
-        "yourLockedLP": "$5000",
-        "rewards": "2 Avax"
+        "yourLockedLP": "500",
+        "rewards": "50",
+        "imageUrl": "/images/cowrie.png",
+        "chain": "Avax"
     },
     {
         "id": "2",
-        "tokenId": "456",
-        "name": "Second",
+        "tokenId": "Kittens",
         "totalLiquidity": "2000",
-        "rewardRate": "10%",
-        "imageUrl": "https://via.placeholder.com/100",
-        "yourLockedLP": "$1000",
-        "rewards": "1 Avax"
+        "rewardRate": "8%",
+        "yourLockedLP": "1000",
+        "rewards": "80",
+        "imageUrl": "/images/Kitten_BEST.jpg",
+        "chain": "Avax"
     },
     {
         "id": "3",
-        "tokenId": "789",
-        "name": "Third",
-        "totalLiquidity": "1500",
-        "rewardRate": "10%",
-        "imageUrl": "https://via.placeholder.com/100",
-        "yourLockedLP": "$20000",
-        "rewards": "10 Avax"
+        "tokenId": "Eth_Kittens",
+        "totalLiquidity": "2000",
+        "rewardRate": "8%",
+        "yourLockedLP": "1000",
+        "rewards": "80",
+        "imageUrl": "/images/Kitten_BEST.jpg",
+        "chain": "Eth"
     }
 ]

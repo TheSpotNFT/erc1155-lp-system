@@ -3,7 +3,7 @@ import Web3Modal from 'web3modal';
 import { ethers } from 'ethers';
 import { getProviderOptions } from '../utils/web3modalConfig';
 
-const Navbar = ({ onConnect }) => {
+const Navbar = ({ onConnect, onNetworkChange }) => {
   const [provider, setProvider] = useState(null);
   const [account, setAccount] = useState(null);
   const [network, setNetwork] = useState('');
@@ -41,9 +41,10 @@ const Navbar = ({ onConnect }) => {
   const detectNetwork = async () => {
     if (!provider) return;
     const network = await provider.getNetwork();
-    const networkName = network.chainId === 43114 ? 'Avalanche' : 'Ethereum';
+    const networkName = network.chainId === 43114 ? 'Avax' : 'Eth';
     console.log(`Detected network: ${networkName}`); // Debugging statement
     setNetwork(networkName);
+    onNetworkChange(networkName); // Update network in Home component
   };
 
   const connectWallet = async () => {
@@ -65,30 +66,32 @@ const Navbar = ({ onConnect }) => {
   const switchNetwork = async () => {
     if (!provider) return;
 
-    const targetNetwork = network === 'Avalanche' ? 'Ethereum' : 'Avalanche';
-    const chainId = targetNetwork === 'Avalanche' ? '0xa86a' : '0x1'; // Switch to the opposite network
+    const targetNetwork = network === 'Avax' ? 'Eth' : 'Avax';
+    const chainId = targetNetwork === 'Avax' ? '0xa86a' : '0x1'; // Switch to the opposite network
     try {
       await provider.send('wallet_switchEthereumChain', [{ chainId }]);
       console.log(`Switched to network: ${targetNetwork}`); // Debugging statement
       setNetwork(targetNetwork);
+      onNetworkChange(targetNetwork); // Update network in Home component
     } catch (switchError) {
       if (switchError.code === 4902) {
         try {
           await provider.send('wallet_addEthereumChain', [
             {
               chainId,
-              chainName: targetNetwork === 'Avalanche' ? 'Avalanche Network' : 'Ethereum Mainnet',
-              rpcUrls: targetNetwork === 'Avalanche'
+              chainName: targetNetwork === 'Avax' ? 'Avalanche Network' : 'Ethereum Mainnet',
+              rpcUrls: targetNetwork === 'Avax'
                 ? ['https://api.avax.network/ext/bc/C/rpc']
                 : ['https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID'],
-              nativeCurrency: targetNetwork === 'Avalanche'
+              nativeCurrency: targetNetwork === 'Avax'
                 ? { name: 'Avalanche', symbol: 'AVAX', decimals: 18 }
                 : { name: 'Ether', symbol: 'ETH', decimals: 18 },
-              blockExplorerUrls: targetNetwork === 'Avalanche' ? ['https://cchain.explorer.avax.network/'] : ['https://etherscan.io'],
+              blockExplorerUrls: targetNetwork === 'Avax' ? ['https://cchain.explorer.avax.network/'] : ['https://etherscan.io'],
             },
           ]);
           console.log(`Added and switched to network: ${targetNetwork}`); // Debugging statement
           setNetwork(targetNetwork);
+          onNetworkChange(targetNetwork); // Update network in Home component
         } catch (addError) {
           console.error(addError);
         }
@@ -103,7 +106,7 @@ const Navbar = ({ onConnect }) => {
       </button>
       {account && (
         <button onClick={switchNetwork} className="bg-green-500 hover:bg-green-700 duration-150 text-white font-bold py-2 px-4 rounded">
-          Switch to {network === 'Avalanche' ? 'Ethereum' : 'Avalanche'}
+          Switch to {network === 'Avax' ? 'Ethereum' : 'Avalanche'}
         </button>
       )}
     </nav>
