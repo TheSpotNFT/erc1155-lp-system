@@ -159,7 +159,7 @@ const Home = () => {
             placeholder="Search by Token ID"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full mb-4 p-2 border border-zinc-600 bg-zinc-700 text-white rounded"
+            className="w-full mb-4 p-2 border border-zinc-700 bg-zinc-700 text-white rounded"
           />
           <div className="grid grid-cols-7 gap-4 p-4 bg-zinc-700">
             <div className="flex font-semibold h-12 w-12"></div>
@@ -172,7 +172,7 @@ const Home = () => {
           </div>
           <ul className="space-y-4">
             {filteredPools.map((pool) => (
-              <li key={pool.id} className="flex items-center p-4 border-t border-gray-300 pt-8">
+              <li key={pool.id} className="flex items-center p-4 border-b border-zinc-500 pt-8">
                 <div className='flex mx-auto'><img src={pool.imageUrl} alt={`Token ${pool.tokenId}`} className="w-24 h-24 p" /></div>
                 <div className="flex-1 grid grid-cols-5 gap-4 items-center">
                   <p className='mx-auto'>{pool.tokenId}</p>

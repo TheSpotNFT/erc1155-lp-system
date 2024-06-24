@@ -101,11 +101,11 @@ const Navbar = ({ onConnect, onNetworkChange }) => {
 
   return (
     <nav className="flex justify-between items-center p-4 bg-zinc-800 text-white">
-      <button onClick={connectWallet} className="bg-green-500 hover:bg-green-800 duration-150 text-white font-bold py-2 px-4 rounded">
+      <button onClick={connectWallet} className="bg-green-500 hover:bg-green-800 duration-150 text-white font-bold py-2 px-4 rounded w-60">
         {account ? `Connected: ${account.substring(0, 6)}...${account.substring(account.length - 4)}` : 'Connect Wallet'}
       </button>
       {account && (
-        <button onClick={switchNetwork} className="bg-green-500 hover:bg-green-700 duration-150 text-white font-bold py-2 px-4 rounded">
+        <button onClick={switchNetwork} className="bg-green-500 hover:bg-green-700 duration-150 text-white font-bold py-2 px-4 rounded w-60">
           Switch to {network === 'Avax' ? 'Ethereum' : 'Avalanche'}
         </button>
       )}
