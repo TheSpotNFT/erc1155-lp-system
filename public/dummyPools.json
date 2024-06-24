@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "tokenId": "123",
+        "name": "First",
+        "totalLiquidity": "1000",
+        "rewardRate": "10%",
+        "imageUrl": "https://via.placeholder.com/100",
+        "yourLockedLP": "$5000",
+        "rewards": "2 Avax"
+    },
+    {
+        "id": "2",
+        "tokenId": "456",
+        "name": "Second",
+        "totalLiquidity": "2000",
+        "rewardRate": "10%",
+        "imageUrl": "https://via.placeholder.com/100",
+        "yourLockedLP": "$1000",
+        "rewards": "1 Avax"
+    },
+    {
+        "id": "3",
+        "tokenId": "789",
+        "name": "Third",
+        "totalLiquidity": "1500",
+        "rewardRate": "10%",
+        "imageUrl": "https://via.placeholder.com/100",
+        "yourLockedLP": "$20000",
+        "rewards": "10 Avax"
+    }
+]

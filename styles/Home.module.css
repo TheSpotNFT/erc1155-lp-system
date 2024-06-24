@@ -1,0 +1,86 @@
+.container {
+    padding: 20px;
+}
+
+.container2 {
+    margin-top: 10px;
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.createPool {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Center items horizontally */
+}
+
+.dropdown {
+    width: 50%;
+}
+
+.input {
+    width: 50%;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.feeNote {
+    margin-top: 10px;
+}
+
+.poolList {
+    list-style: none;
+    padding: 0;
+}
+
+.poolItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.poolItem img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.poolInfo {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.poolInfo p {
+    margin: 0;
+}
+
+.button {
+    width: 50%;
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    align-self: center;
+    /* Center the button within its flex container */
+}
+
+.button:hover {
+    background-color: #005bb5;
+}
